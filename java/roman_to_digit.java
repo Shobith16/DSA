@@ -1,8 +1,9 @@
+import java.util.HashMap;
 
 class Solution {
-int romanToInt(String s) {
-    int sum = 0;
-    HashMap<string, Integer> map = new HashMap<>();
+    public static int romanToInt(String s) {
+        int sum = 0;
+    HashMap<String, Integer> map = new HashMap<>();
     map.put("I", 1);
     map.put("V", 5);
     map.put("X", 10);
@@ -28,5 +29,11 @@ int romanToInt(String s) {
     }
 
     return sum;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(Solution.romanToInt("IV"));
+        System.out.println(Solution.romanToInt("LCIV"));
+    }
 }
-};
