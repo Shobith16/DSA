@@ -1,5 +1,16 @@
 class test {
+    public static int strStr(String haystack, String needle) {
+        for(int i = 0;i <= haystack.length()-needle.length();i++){
+            
+            if(haystack.substring(i,i+needle.length()).equals(needle)){
+                return i;
+            }
+
+        }
+        return -1;
+    }
     public static void main(String[] args) {
-        System.out.println("Testing.. code");
+        //first-occurrence-in-a-string
+        System.out.println("Res : " + strStr("sadbutsad", "sad"));
     }
 }
