@@ -20,6 +20,17 @@ class test {
         return s.equals(new StringBuilder(s).reverse().toString().toLowerCase());
            
     }
+
+    public int hIndex(int[] citations) {
+        int count = 0;
+        if(citations.length==1 && citations[0]>0) return 1;
+        for(int i=0;i<citations.length;i++){
+            if(citations[i]>i && citations[i]>=3){
+                count = count + 1;
+            }
+        }
+        return count;
+    }
     public static void main(String[] args) {
         //first-occurrence-in-a-string
         System.out.println("Res : " + strStr("sadbutsad", "sad"));
