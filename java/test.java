@@ -1,8 +1,11 @@
+import java.util.Arrays;
+import java.util.Collections;
+
 class test {
     public static int strStr(String haystack, String needle) {
-        for(int i = 0;i <= haystack.length()-needle.length();i++){
-            
-            if(haystack.substring(i,i+needle.length()).equals(needle)){
+        for (int i = 0; i <= haystack.length() - needle.length(); i++) {
+
+            if (haystack.substring(i, i + needle.length()).equals(needle)) {
                 return i;
             }
 
@@ -18,25 +21,36 @@ class test {
         s = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 
         return s.equals(new StringBuilder(s).reverse().toString().toLowerCase());
-           
+
     }
 
+    // h-index
     public int hIndex(int[] citations) {
-        int count = 0;
-        if(citations.length==1 && citations[0]>0) return 1;
-        for(int i=0;i<citations.length;i++){
-            if(citations[i]>i && citations[i]>=3){
-                count = count + 1;
+        Integer[] result = Arrays.stream(citations)
+                .boxed()
+                .toArray(Integer[]::new);
+        Arrays.sort(result, Collections.reverseOrder());
+
+        int h = 0;
+        for (int i = 0; i < result.length; i++) {
+            if (result[i] >= i + 1) { // ✅ rank is i+1 (1-based)
+                h = i + 1;
+            } else {
+                break; // sorted desc, no point continuing
             }
         }
-        return count;
+        return h;
     }
+
     public static void main(String[] args) {
-        //first-occurrence-in-a-string
+        // first-occurrence-in-a-string
         System.out.println("Res : " + strStr("sadbutsad", "sad"));
         System.out.println("Res : " + strStr("leetcode", "leeto"));
-        //palindrome
+        // palindrome
         System.out.println("Res : " + isPalindrome("A man a plan a canal Panama"));
         System.out.println("Res : " + isPalindrome("race a car"));
+        // h-index
+        System.out.println("Res : " + new test().hIndex(new int[]{3, 0, 6, 1, 5}));
+
     }
 }
