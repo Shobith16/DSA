@@ -41,7 +41,19 @@ class test {
         }
         return h;
     }
+    public static String reverseWords(String s) {
+        String[] words = s.trim().split("\\s+");
+        // String[] reversedWords = new String[words.length];
+        String reversedWords="";
 
+        for(int i=words.length-1;i>=0;i--){
+            reversedWords += words[i] + " ";
+        }
+
+        return reversedWords.trim();
+
+        
+    }
     public static void main(String[] args) {
         // first-occurrence-in-a-string
         System.out.println("Res : " + strStr("sadbutsad", "sad"));
@@ -51,6 +63,7 @@ class test {
         System.out.println("Res : " + isPalindrome("race a car"));
         // h-index
         System.out.println("Res : " + new test().hIndex(new int[]{3, 0, 6, 1, 5}));
-
+        // reverse-words-in-a-string
+        System.out.println("Res : " + reverseWords("  hello world!  "));
     }
 }
