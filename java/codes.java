@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.*;
 
 class codes {
     public static int strStr(String haystack, String needle) {
@@ -11,6 +12,15 @@ class codes {
 
         }
         return -1;
+    }
+
+    public static String reverse_string(String s){
+        String newstr = "";
+        for(int i=s.length()-1;i>=0;i--){
+            newstr += s.charAt(i);
+
+        }
+        return newstr;
     }
 
     public static boolean isPalindrome(String s) {
@@ -62,8 +72,10 @@ class codes {
         System.out.println("Res : " + isPalindrome("A man a plan a canal Panama"));
         System.out.println("Res : " + isPalindrome("race a car"));
         // h-index
-        System.out.println("Res : " + new test().hIndex(new int[]{3, 0, 6, 1, 5}));
+        System.out.println("Res : " + new codes().hIndex(new int[]{3, 0, 6, 1, 5}));
         // reverse-words-in-a-string
         System.out.println("Res : " + reverseWords("  hello world!  "));
+        //reverse a String
+        System.out.println("Res :" + reverse_string("manglore"));
     }
 }
