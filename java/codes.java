@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Collections;
 
-class test {
+class codes {
     public static int strStr(String haystack, String needle) {
         for (int i = 0; i <= haystack.length() - needle.length(); i++) {
 
