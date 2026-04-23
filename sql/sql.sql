@@ -15,7 +15,6 @@ select coalesce(
             where
                 rnk = 2
             Limit 1
-        ), NuLL
-    ) as SecondHighestSalary
+        ), NuLL) as SecondHighestSalary
 
 --
