@@ -23,6 +23,28 @@ class codes {
         return newstr;
     }
 
+
+    public static boolean canConstruct(String ransomNote, String magazine) {
+        HashMap<Character,Integer> map1 = new HashMap<Character,Integer>();
+        HashMap<Character,Integer> map2 = new HashMap<Character,Integer>();
+        if(magazine.length() < ransomNote.length())
+            return false;
+        for(int i=0;i<magazine.length();i++){
+            map1.put(magazine.charAt(i),map1.getOrDefault(magazine.charAt(i),0)+1);
+        }
+        for(int i=0;i<ransomNote.length();i++){
+            map2.put(ransomNote.charAt(i),map2.getOrDefault(ransomNote.charAt(i),0)+1);
+        }
+
+        for(int i=0;i<ransomNote.length();i++){
+            if(!(map1.getOrDefault(ransomNote.charAt(i),0) >= map2.getOrDefault(ransomNote.charAt(i),0))){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
     public static boolean isPalindrome(String s) {
         // Remove all spaces
         s = s.replaceAll("\\s", "");
@@ -77,5 +99,7 @@ class codes {
         System.out.println("Res : " + reverseWords("  hello world!  "));
         //reverse a String
         System.out.println("Res :" + reverse_string("manglore"));
+        // ransom-note
+        System.out.println("Res : " + canConstruct("a", "b"));
     }
 }
