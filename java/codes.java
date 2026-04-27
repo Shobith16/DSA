@@ -43,7 +43,18 @@ class codes {
         }
         return true;
     }
+    public static boolean isSubsequence(String s, String t) {
+        int count = 0;
+        if(s.length() == 0 && t.length() > 0) return true;
+        for(int i=0;i<t.length();i++){
+            if(count == s.length()) break;
+            if((t.charAt(i)) == (s.charAt(count))){
+                count++;
+            }
+        }
 
+        return s.length() == count ? true : false;
+    }
 
     public static boolean isPalindrome(String s) {
         // Remove all spaces
@@ -101,5 +112,7 @@ class codes {
         System.out.println("Res :" + reverse_string("manglore"));
         // ransom-note
         System.out.println("Res : " + canConstruct("a", "b"));
+        // subsequence
+        System.out.println("Res : " + isSubsequence("abc", "ahbgdc
     }
 }
