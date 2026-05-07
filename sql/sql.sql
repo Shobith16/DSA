@@ -18,3 +18,5 @@ select coalesce(
         ), NuLL) as SecondHighestSalary
 
 --
+
+select e.name as Employee from Employee as e inner join employee as f on e.managerId = f.id and e.salary > f.salary
