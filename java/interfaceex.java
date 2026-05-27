@@ -14,3 +14,11 @@ abstract class interface_ex{
         this.name = name;
     }
 }
+
+class Animal{
+    public static void main(String[] args) {
+        interface_ex obj = new interface_ex() {};
+        obj.setName("Dog");
+        System.out.println(obj.name);
+    }
+}
