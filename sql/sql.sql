@@ -25,3 +25,6 @@ select e.name as Employee from Employee as e
 inner join employee as f on e.managerId = f.id 
 and e.salary > f.salary
 
+select Email as Email from person  GROUP BY Email
+HAVING COUNT(Email) > 1;
+
