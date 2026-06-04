@@ -28,3 +28,6 @@ and e.salary > f.salary
 select Email as Email from person  GROUP BY Email
 HAVING COUNT(Email) > 1;
 
+select name as Customers from Customers 
+where id Not In (select CustomerId from Orders)
+
