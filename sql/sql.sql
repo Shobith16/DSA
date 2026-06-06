@@ -17,11 +17,22 @@ select coalesce(
             Limit 1
         ), NuLL) as SecondHighestSalary
 
-select e.name as Employee from Employee as e 
-inner join employee as f on e.managerId = f.id 
-and e.salary < f.salary
+--third-highest-salary
+select coalesce(
+        (
+            select salary
+            from (
+                    select salary, Dense_Rank() Over (
+                            order by salary Desc
+                        ) as rnk
+                    FROM employee
+                ) as ranked
+            where
+                rnk = 3
+            Limit 1
+        ), NuLL) as ThirdHighestSalary
 
-select e.name as Employee from Employee as e 
+        
 inner join employee as f on e.managerId = f.id 
 and e.salary > f.salary
 
