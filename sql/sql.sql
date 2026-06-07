@@ -15,10 +15,12 @@ select coalesce(
             where
                 rnk = 2
             Limit 1
-        ), NuLL) as SecondHighestSalary
+        ), NuLL
+    ) as SecondHighestSalary
 
 --third-highest-salary
-select coalesce(
+select
+    coalesce(
         (
             select salary
             from (
@@ -30,15 +32,23 @@ select coalesce(
             where
                 rnk = 3
             Limit 1
-        ), NuLL) as ThirdHighestSalary
+        ),
+        NuLL
+    ) as ThirdHighestSalary
+    inner join employee as f on e.managerId = f.id
+    and e.salary > f.salary
 
-        
-inner join employee as f on e.managerId = f.id 
-and e.salary > f.salary
+select Email as Email
+from person
+GROUP BY
+    Email
+HAVING
+    COUNT(Email) > 1;
 
-select Email as Email from person  GROUP BY Email
-HAVING COUNT(Email) > 1;
-
-select name as Customers from Customers 
-where id Not In (select CustomerId from Orders)
-
+select name as Customers
+from Customers
+where
+    id Not In(
+        select CustomerId
+        from Orders
+    )
